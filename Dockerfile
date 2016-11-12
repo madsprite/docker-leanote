@@ -1,10 +1,7 @@
 FROM golang:alpine
-RUN apk --update add curl && \
-    /usr/local/leanote-linux-amd64-v2.1.bin.tar.gz && \
-    curl -L http://sourceforge.net/projects/leanote-bin/files/2.1/leanote-linux-arm.v2.1.bin.tar.gz/download >> \
-    /usr/local/leanote-linux-arm-v2.1.bin.tar.gz && \
-    apk del --purge curl && \
-    rm -rf /var/cache/apk/*
+MAINTAINER MadSprite <contactme@madsprite.com>
+
+ADD leanote-linux-arm.v2.1.bin.tar.gz /usr/local/leanote-linux-arm.v2.1.bin.tar.gz
 
 RUN tar -xzvf /usr/local/leanote-linux-arm.v2.1.bin.tar.gz -C /usr/local
 
